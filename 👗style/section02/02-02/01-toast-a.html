@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>토스트 애니메이션</title>
+
+    <style>
+        .토스트 {
+            width: 300px;
+            height: 40px;
+            background-color: black;
+            color: white;
+
+            text-align: center;
+            line-height: 40px;
+
+            border-radius: 20px;
+
+            /* 화면 아래에서 시작 */
+            margin: 100px auto;
+
+            animation: toast 4s ease forwards;
+        }
+
+        @keyframes toast {
+
+            /* 처음 */
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            /* 등장 */
+            20% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* 2초 정도 유지 */
+            80% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* 사라짐 */
+            100% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="토스트">
+        📋 복사되었어요.
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <title>스티키 스크롤 실습</title>
+    <style>
+        .부모{
+            width: 200px;
+            height: 300px;
+            border: 1px solid blue;
+            overflow: scroll;
+        }
+        .자식{
+            width: 150px;
+            height: 200px;
+            margin: 10px;
+            background-color: skyblue;
+            flex-shrink: 0;
+        }
+
+        .스티키헤더{
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 50px;
+
+            backdrop-filter: blur(10px);
+        }
+    </style>
+ </head>
+ <body>
+    <div class="부모">
+        <div class="스티키 헤더">스티키 헤더</div>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+        <div class="자식"/>
+    </div>
+    
+ </body>
+ </html>

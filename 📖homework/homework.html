@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>당당한 식사일기</title>
+    <link href="./homework.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 상단 제목-->
+    <div class="page">
+        <div class="top">
+            <div class="top-name">Dang's meal</div>
+            <button type="button" id="theme-btn" class="theme-btn">🌚 다크모드</button>
+        </div>
+
+        <!-- 배너-->
+        <section class="banner">
+            <img class="bannerimg" src="./bannerimg.png">
+        </section>
+        
+        <!-- 내비게이션 -->
+        <div class="tabs">
+              <a class="tab" href="#diary-list-area">아카이빙</a>
+              <a class="tab" href="#register-area">기록하기</a>
+              <a class="tab" href="#detail-area">상세보기</a>
+        </div>
+        
+        <!-- 필터와 검색 -->
+        <div class="toolbar">
+            <div class="search-box">
+                <input class="searchInput" id="searchInput" type="text" placeholder="🔎 제목이나 내용을 검색해보세요">
+            </div>
+
+            <div class="filters" id="filterButtons"></div>
+        </div>
+
+        <div class="menu-list" id="menuList"></div>
+
+        <section class="section" id="register-area">
+
+            <div class="form-grid">
+
+                <!-- 임시 아카이빙
+                <div class="form-panel">
+                        <form id="diaryForm">
+                            <div class="form-fields">
+                                <div class="field">
+                                    <label>한식</label>
+                                </div>
+                            </div>
+                        </form>
+                </div>
+
+                                <div class="form-panel">
+                        <form id="diaryForm">
+                            <div class="form-fields">
+                                <div class="field">
+                                    <label>간식</label>
+                                </div>
+                            </div>
+                        </form>
+                </div> -->
+
+
+                <!-- 기록하기 -->
+                <div class="form-panel">
+                    <form id="diaryForm">
+                        <div class="form-fields">
+                            <div class="field">
+                                <label>기록하기</label>
+                                <div class="menu-group">
+                                <label class="menu-option"><input type="radio" name="menu" value="한식" checked> 한식</label>
+                                <label class="menu-option"><input type="radio" name="menu" value="양식"> 양식</label>
+                                <label class="menu-option"><input type="radio" name="menu" value="면류"> 면류</label>
+                                <label class="menu-option"><input type="radio" name="menu" value="간식"> 간식</label>
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label for="titleInput">메뉴</label>
+                                <input id="titleInput" type="text" placeholder="오늘의 식사는 어땠나요?😋" required>
+                            </div>
+
+                            <button class="form-btn" id="submitButton" type="submit">등록하기</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 상세보기 -->
+                <section class="detail-panel" id="detail-area">
+                    <div class="section-head" style="margin-bottom: 10px;">
+                        <div>
+                            <h2>상세보기</h2>
+                        </div>
+                    </div>
+
+                    <div class="detail-box" id="detailBox">
+                        <h3>수정할 기록을 선택해 주세요.</h3>
+                        <p class="detail-content"> 아카이빙 목록에서 카드를 선택하면, 새 창에서 볼 수 있어요.<br>이곳에서는 기록을 수정 할 수 있어요.✍🏻</p>
+                    </div>
+
+                    <div class="detail-actions">
+                        <a class="link-btn" href="#register-area">기록하기로 이동</a>
+                        <button class="mini-btn primary" id="editButton" type="button" disabled>수정하기</button>
+                        <button class="mini-btn" id="clearButton" type="button">선택 해제</button>
+                    </div>
+
+                </section>
+            </div>
+
+            <button class="top-floating" id="top-floating" onclick="맨위로가기()"> TOP </button>
+
+
+        <p class="footer-note">
+        건강한 식사 하세요!🍽️
+        </p>
+<script src="./homework.js"></script>
+</body>
+</html>
