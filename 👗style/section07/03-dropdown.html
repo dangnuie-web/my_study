@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인접형제 결합자 실습 - 드롭다운</title>
+
+    <style>
+        .dropdown {
+            width: 150px;
+        }
+
+        .dropdown-title {
+            width: 150px;
+            height: 40px;
+        }
+
+        .dropdown-menu {
+            display: none;
+            width: 150px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            border: 2px solid green;
+        }
+
+        .dropdown-menu button {
+            width: 100%;
+            padding: 10px;
+            border: 0;
+            background: white;
+            text-align: left;
+        }
+
+        .dropdown-menu button:hover {
+            background-color: gold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="dropdown">
+
+        <button class="dropdown-title" id="dropdownButton">
+            선택하세요~
+        </button>
+
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li>
+                <button data-value="사과">사과</button>
+            </li>
+
+            <li>
+                <button data-value="바나나">바나나</button>
+            </li>
+
+            <li>
+                <button data-value="포도">포도</button>
+            </li>
+        </ul>
+
+    </div>
+
+    <script>
+        const dropdownButton = document.getElementById("dropdownButton");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+
+        dropdownButton.addEventListener("click", () => {
+
+            if (dropdownMenu.style.display === "block") {
+                dropdownMenu.style.display = "none";
+            } else {
+                dropdownMenu.style.display = "block";
+            }
+
+        });
+
+        const options = document.querySelectorAll(".dropdown-menu button");
+        
+        options.forEach((option) => { 
+            option.addEventListener("click", () => {
+
+                dropdownButton.textContent = option.dataset.value;
+
+                dropdownMenu.style.display = "none";
+            });
+        });
+    </script>
+
+</body>
+</html>

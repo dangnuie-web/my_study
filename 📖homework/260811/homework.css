@@ -1,0 +1,1198 @@
+/* ==================================================
+   전체 기본 설정
+   ================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* ==================================================
+   🎨 디자인 컬러
+   ================================================== */
+
+:root {
+
+    /* 메인 컬러 */
+    --색상-진한브라운: #4A2718;
+    --색상-딥브라운: #592219;
+
+    /* 보조 브라운 */
+    --색상-브라운: #7A4E47;
+
+    /* 베이지 / 뉴트럴 */
+    --색상-베이지: #CDB0A1;
+    --색상-골드베이지: #B98E61;
+    --색상-카키베이지: #C7B89C;
+
+    /* 밝은 배경 */
+    --색상-아이보리: #f6f0e3;
+    --색상-크림: #DBCEC3;
+
+
+    /* ==================================================
+       일반 모드
+       ================================================== */
+
+    /* 페이지 */
+    --색상-페이지배경: var(--색상-아이보리);
+    --색상-기본글씨: var(--색상-진한브라운);
+
+    /* 메인 버튼 */
+    --색상-메인버튼: var(--색상-진한브라운);
+    --색상-메인버튼글씨: var(--색상-아이보리);
+
+    /* 카드 */
+    --색상-카드배경: var(--색상-크림);
+
+    /* 입력 */
+    --색상-입력배경: #FFFFFF;
+
+    /* 테두리 */
+    --색상-테두리: var(--색상-베이지);
+
+    /* 보조 글씨 */
+    --색상-연한글씨: var(--색상-브라운);
+
+    /* 하단 */
+    --색상-하단배경: var(--색상-크림);
+
+    /* 강조 */
+    --색상-강조: var(--색상-골드베이지);
+
+    /* 모달 */
+    --색상-모달배경: var(--색상-크림);
+    --색상-오버레이: rgba(74, 39, 24, 0.55);
+
+
+    /* 감정 배경 */
+    --배경-행복: #E8D4CF;
+    --배경-슬픔: #D8D8D0;
+    --배경-놀람: #E6D6BA;
+    --배경-화남: #D4C7C0;
+    --배경-기타: #D7C6BD;
+}
+
+
+/* ==================================================
+   🌙 다크 모드
+   ================================================== */
+
+body.다크모드만들기 {
+
+    /* 페이지 */
+    --색상-페이지배경: var(--색상-진한브라운);
+    --색상-기본글씨: var(--색상-아이보리);
+
+    /* 메인 버튼
+       일반 모드와 반대로 밝은 아이보리를 사용 */
+    --색상-메인버튼: var(--색상-아이보리);
+    --색상-메인버튼글씨: var(--색상-진한브라운);
+
+    /* 카드 */
+    --색상-카드배경: var(--색상-딥브라운);
+
+    /* 입력 */
+    --색상-입력배경: var(--색상-브라운);
+
+    /* 테두리 */
+    --색상-테두리: rgba(221, 221, 207, 0.35);
+
+    /* 보조 글씨 */
+    --색상-연한글씨: var(--색상-베이지);
+
+    /* 하단 */
+    --색상-하단배경: var(--색상-딥브라운);
+
+    /* 강조 */
+    --색상-강조: var(--색상-골드베이지);
+
+    /* 모달 */
+    --색상-모달배경: var(--색상-딥브라운);
+    --색상-오버레이: rgba(0, 0, 0, 0.65);
+
+
+    /* 다크모드 감정 배경 */
+    --배경-행복: #704B43;
+    --배경-슬픔: #55534A;
+    --배경-놀람: #705A3F;
+    --배경-화남: #51453F;
+    --배경-기타: #624B43;
+}
+
+/* ==================================================
+   🎨 다크모드 토글 버튼
+   ================================================== */
+
+.다크모드스위치 {
+    appearance: none;
+    -webkit-appearance: none;
+
+    width: 52px;
+    height: 30px;
+
+    margin: 0;
+    padding: 3px;
+
+    border: 0;
+    border-radius: 30px;
+
+    background-color: var(--색상-베이지);
+
+    cursor: pointer;
+
+    position: relative;
+
+    transition:
+        background-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+
+/* 토글 안의 동그란 버튼 */
+.다크모드스위치::before {
+    content: "";
+
+    position: absolute;
+
+    top: 3px;
+    left: 3px;
+
+    width: 24px;
+    height: 24px;
+
+    border-radius: 50%;
+
+    background-color: var(--색상-아이보리);
+
+    box-shadow: 0 2px 5px rgba(74, 39, 24, 0.2);
+
+    transition:
+        transform 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* 체크되었을 때 = 다크모드 */
+.다크모드스위치:checked {
+    background-color: var(--색상-아이보리);
+
+    box-shadow:
+        inset 0 0 0 1px var(--색상-베이지);
+}
+
+
+/* 체크되었을 때 동그라미 오른쪽으로 이동 */
+.다크모드스위치:checked::before {
+    transform: translateX(22px);
+
+    background-color: var(--색상-진한브라운);
+}
+
+
+/* 마우스를 올렸을 때 */
+.다크모드스위치:hover {
+    opacity: 0.9;
+}
+
+
+/* 키보드로 선택했을 때 */
+.다크모드스위치:focus-visible {
+    outline: 2px solid var(--색상-골드베이지);
+    outline-offset: 3px;
+}
+
+
+/* ==================================================
+   🌙 모바일
+   ================================================== */
+
+@media (max-width: 779px) {
+
+    .다크모드스위치 {
+        width: 44px;
+        height: 26px;
+        padding: 3px;
+    }
+
+    .다크모드스위치::before {
+        width: 20px;
+        height: 20px;
+
+        top: 3px;
+        left: 3px;
+    }
+
+    .다크모드스위치:checked::before {
+        transform: translateX(18px);
+    }
+
+}
+
+
+/* ==================================================
+   기본
+   ================================================== */
+
+html {
+    font-size: 16px;
+}
+
+body {
+    margin: 0;
+    color: var(--색상-기본글씨);
+    background-color: var(--색상-페이지배경);
+    font-family: Arial, "Apple SD Gothic Neo", sans-serif;
+
+    transition:
+        color 0.3s,
+        background-color 0.3s;
+}
+
+button,
+input,
+select,
+textarea {
+    font-family: Arial, "Apple SD Gothic Neo", sans-serif;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ==================================================
+   페이지
+   ================================================== */
+
+.페이지 {
+    width: 100%;
+    max-width: 1168px;
+    margin: 0 auto;
+}
+
+
+/* ==================================================
+   상단
+   ================================================== */
+
+.상단 {
+    height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    background-color: color-mix(
+        in srgb,
+        var(--색상-페이지배경) 80%,
+        transparent
+    );
+
+    backdrop-filter: blur(10px);
+}
+
+.로고 {
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.다크모드 {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   다크모드 스위치
+   ================================================== */
+
+.스위치 {
+    width: 48px;
+    height: 28px;
+    padding: 4px;
+
+    border-radius: 20px;
+
+    background-color: var(--색상-진한브라운);
+
+    transition:
+        background-color 0.3s;
+}
+
+.스위치동그라미 {
+    width: 20px;
+    height: 20px;
+
+    border-radius: 50%;
+
+    background-color: var(--색상-아이보리);
+
+    transition:
+        transform 0.3s,
+        background-color 0.3s;
+}
+
+
+/* 다크모드일 때 스위치 */
+
+body.다크모드만들기 .스위치 {
+    background-color: var(--색상-아이보리);
+}
+
+body.다크모드만들기 .스위치동그라미 {
+    background-color: var(--색상-진한브라운);
+    transform: translateX(20px);
+}
+
+
+/* ==================================================
+   배너
+   ================================================== */
+
+.배너 {
+    width: 100%;
+    height: 246px;
+
+    border-radius: 24px;
+
+    background-color: var(--색상-베이지);
+
+    overflow: hidden;
+}
+
+.배너비디오 {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ==================================================
+   탭
+   ================================================== */
+
+.탭 {
+    height: 82px;
+
+    display: flex;
+    gap: 30px;
+    align-items: flex-end;
+}
+
+.탭버튼 {
+    padding: 0 8px 12px 8px;
+
+    color: var(--색상-연한글씨);
+
+    font-size: 1.375rem;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.선택된탭 {
+    color: var(--색상-기본글씨);
+
+    border-bottom:
+        3px solid var(--색상-강조);
+}
+
+
+/* ==================================================
+   검색 영역
+   ================================================== */
+
+.검색영역 {
+    height: 94px;
+
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.감정선택 {
+    width: 120px;
+    height: 48px;
+
+    padding: 0 14px;
+
+    border:
+        1px solid var(--색상-테두리);
+
+    border-radius: 9px;
+
+    background-color: var(--색상-입력배경);
+    color: var(--색상-기본글씨);
+
+    font-size: 15px;
+}
+
+.검색창 {
+    width: 320px;
+    height: 48px;
+
+    padding: 0 18px;
+
+    border:
+        1px solid var(--색상-테두리);
+
+    border-radius: 24px;
+
+    background-color: var(--색상-입력배경);
+    color: var(--색상-기본글씨);
+
+    font-size: 15px;
+}
+
+
+/* ==================================================
+   메인 버튼
+   ================================================== */
+
+.글쓰기버튼 {
+    height: 48px;
+
+    margin-left: auto;
+    padding: 0 20px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background-color: var(--색상-메인버튼);
+    color: var(--색상-메인버튼글씨);
+
+    font-size: 16px;
+
+    transition:
+        background-color 0.2s,
+        transform 0.2s;
+}
+
+.글쓰기버튼:hover {
+    background-color: var(--색상-딥브라운);
+    transform: translateY(-1px);
+}
+
+
+/* ==================================================
+   일기 카드
+   ================================================== */
+
+.일기목록 {
+    display: flex;
+
+    gap: 36px 24px;
+
+    flex-wrap: wrap;
+    justify-content: center;
+
+    min-height: 400px;
+}
+
+.카드 {
+    width: 274px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s;
+}
+
+.카드:hover {
+    transform: scale(1.03);
+}
+
+.사진상자 {
+    width: 274px;
+    height: 206px;
+
+    border-radius: 16px;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* ==================================================
+   감정 배경
+   ================================================== */
+
+.행복배경 {
+    background-color: var(--배경-행복);
+}
+
+.슬픔배경 {
+    background-color: var(--배경-슬픔);
+}
+
+.놀람배경 {
+    background-color: var(--배경-놀람);
+}
+
+.화남배경 {
+    background-color: var(--배경-화남);
+}
+
+.기타배경 {
+    background-color: var(--배경-기타);
+}
+
+
+/* ==================================================
+   이모지
+   ================================================== */
+
+.이모지원 {
+    width: 148px;
+    height: 148px;
+
+    border-radius: 50%;
+
+    background-color: var(--색상-카드배경);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 78px;
+}
+
+
+/* ==================================================
+   삭제 버튼
+   ================================================== */
+
+.삭제버튼 {
+    width: 25px;
+    height: 25px;
+
+    padding: 0;
+
+    border:
+        1px solid var(--색상-테두리);
+
+    border-radius: 50%;
+
+    background-color: var(--색상-카드배경);
+    color: var(--색상-기본글씨);
+
+    position: absolute;
+
+    top: 10px;
+    right: 10px;
+
+    font-size: 17px;
+    line-height: 20px;
+}
+
+
+/* ==================================================
+   카드 정보
+   ================================================== */
+
+.카드정보 {
+    margin-top: 16px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 14px;
+}
+
+.날짜 {
+    color: var(--색상-연한글씨);
+}
+
+
+/* ==================================================
+   감정 글씨
+   ================================================== */
+
+.행복글씨 {
+    color: var(--색상-딥브라운);
+}
+
+.슬픔글씨 {
+    color: var(--색상-브라운);
+}
+
+.놀람글씨 {
+    color: var(--색상-골드베이지);
+}
+
+.화남글씨 {
+    color: var(--색상-연한글씨);
+}
+
+.기타글씨 {
+    color: var(--색상-브라운);
+}
+
+
+.카드제목 {
+    margin-top: 12px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 1.0625rem;
+    font-weight: bold;
+}
+
+.결과없음 {
+    width: 100%;
+
+    padding: 100px 0;
+
+    color: var(--색상-연한글씨);
+
+    text-align: center;
+}
+
+
+/* ==================================================
+   사진 보관함
+   ================================================== */
+
+.사진메뉴 {
+    display: none;
+
+    min-height: 400px;
+}
+
+.사진도구 {
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+}
+
+.비율선택 {
+    width: 120px;
+    height: 42px;
+
+    padding: 0 12px;
+
+    border:
+        1px solid var(--색상-테두리);
+
+    border-radius: 8px;
+
+    background-color: var(--색상-입력배경);
+    color: var(--색상-기본글씨);
+}
+
+.강아지사진목록 {
+    width: 500px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+}
+
+
+/* ==================================================
+   사진 로딩
+   ================================================== */
+
+.강아지사진상자 {
+    width: 100%;
+
+    aspect-ratio: 1 / 1;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            90deg,
+            #EEEEEE,
+            #FAFAFA,
+            #EEEEEE
+        );
+
+    background-size: 200% 100%;
+
+    animation:
+        스켈레톤움직이기 1.2s infinite;
+}
+
+.가로형 .강아지사진상자 {
+    aspect-ratio: 4 / 3;
+}
+
+.세로형 .강아지사진상자 {
+    aspect-ratio: 3 / 4;
+}
+
+.강아지사진 {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.3s;
+}
+
+.사진오류 {
+    padding: 80px 0;
+
+    color: var(--색상-연한글씨);
+
+    text-align: center;
+}
+
+
+@keyframes 스켈레톤움직이기 {
+
+    from {
+        background-position: 100% 0;
+    }
+
+    to {
+        background-position: -100% 0;
+    }
+}
+
+
+/* ==================================================
+   하단
+   ================================================== */
+
+.하단바깥 {
+    margin-top: 80px;
+
+    background-color: var(--색상-하단배경);
+}
+
+.하단 {
+    width: 100%;
+    max-width: 1168px;
+
+    height: 150px;
+
+    margin: 0 auto;
+
+    padding-top: 28px;
+}
+
+.하단제목 {
+    margin-bottom: 25px;
+
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.하단글씨 {
+    margin-top: 12px;
+
+    color: var(--색상-연한글씨);
+
+    font-size: 13px;
+}
+
+.위로버튼 {
+    width: 42px;
+    height: 42px;
+
+    border:
+        1px solid var(--색상-테두리);
+
+    border-radius: 50%;
+
+    background-color: var(--색상-카드배경);
+    color: var(--색상-기본글씨);
+
+    position: fixed;
+
+    right: 32px;
+    bottom: 32px;
+
+    font-size: 20px;
+}
+
+
+/* ==================================================
+   글쓰기 모달
+   ================================================== */
+
+.모달배경 {
+    width: 100%;
+    height: 100%;
+
+    background-color: var(--색상-오버레이);
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+}
+
+.모달 {
+    width: 650px;
+
+    padding:
+        28px 30px 24px 30px;
+
+    border-radius: 20px;
+
+    background-color: var(--색상-모달배경);
+    color: var(--색상-기본글씨);
+}
+
+.모달제목 {
+    margin-bottom: 34px;
+
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.입력묶음 {
+    margin-bottom: 22px;
+}
+
+.입력라벨 {
+    margin-bottom: 10px;
+
+    font-size: 14px;
+}
+
+.감정목록 {
+    display: flex;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+.감정목록 label {
+    font-size: 14px;
+}
+
+.제목입력,
+.내용입력 {
+    width: 100%;
+
+    padding: 14px;
+
+    border:
+        1px solid var(--색상-테두리);
+
+    border-radius: 8px;
+
+    background-color: var(--색상-입력배경);
+    color: var(--색상-기본글씨);
+
+    font-size: 14px;
+}
+
+.내용입력 {
+    height: 125px;
+
+    resize: none;
+}
+
+.모달버튼영역 {
+    display: flex;
+
+    gap: 14px;
+
+    justify-content: center;
+}
+
+.닫기버튼,
+.등록버튼 {
+    width: 104px;
+    height: 48px;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.닫기버튼 {
+    border:
+        1px solid var(--색상-기본글씨);
+
+    background-color: var(--색상-모달배경);
+    color: var(--색상-기본글씨);
+}
+
+.등록버튼 {
+    border: 0;
+
+    background-color: var(--색상-메인버튼);
+    color: var(--색상-메인버튼글씨);
+}
+
+.등록버튼:disabled {
+    background-color: #CCCCCC;
+    color: #777777;
+
+    cursor: default;
+}
+
+
+/* ==================================================
+   등록 완료 모달
+   ================================================== */
+
+.완료모달배경 {
+    z-index: 30;
+}
+
+.등록완료모달 {
+    width: 360px;
+
+    padding:
+        34px 24px 24px 24px;
+
+    border-radius: 18px;
+
+    background-color: var(--색상-모달배경);
+    color: var(--색상-기본글씨);
+
+    text-align: center;
+}
+
+.완료메시지 {
+    margin-bottom: 28px;
+
+    font-size: 1.125rem;
+    font-weight: bold;
+}
+
+.확인버튼 {
+    width: 100px;
+    height: 44px;
+
+    border: 0;
+
+    border-radius: 8px;
+
+    background-color: var(--색상-메인버튼);
+    color: var(--색상-메인버튼글씨);
+
+    font-size: 14px;
+}
+
+
+/* ==================================================
+   모바일
+   ================================================== */
+
+@media (max-width: 779px) {
+
+    .페이지 {
+        padding: 0 20px;
+    }
+
+    .상단 {
+        height: 64px;
+    }
+
+    .로고 {
+        font-size: 1rem;
+    }
+
+
+    .배너 {
+        height: 14rem;
+
+        border-radius: 20px;
+    }
+
+    .탭 {
+        height: 78px;
+
+        gap: 20px;
+    }
+
+    .탭버튼 {
+        padding:
+            0 4px 10px 4px;
+
+        font-size: 1rem;
+    }
+
+    .검색영역 {
+        height: auto;
+
+        margin:
+            30px 0 40px 0;
+
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 14px;
+    }
+
+    .검색창 {
+        width: 100%;
+
+        grid-column:
+            1 / 3;
+
+        grid-row: 1;
+    }
+
+    .감정선택 {
+        width: 96px;
+
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .글쓰기버튼 {
+        margin-left: 0;
+
+        grid-column: 2;
+        grid-row: 2;
+
+        justify-self: end;
+    }
+
+
+    /* 모바일에서는 카드가 한 줄에 2개씩 보여요. */
+
+    .일기목록 {
+        display: grid;
+
+        grid-template-columns:
+            1fr 1fr;
+
+        column-gap: 16px;
+        row-gap: 36px;
+    }
+
+    .카드,
+    .사진상자 {
+        width: 100%;
+    }
+
+    .카드 {
+        min-width: 0;
+    }
+
+    .사진상자 {
+        height: 7rem;
+
+        border-radius: 12px;
+    }
+
+    .이모지원 {
+        width: 5rem;
+        height: 5rem;
+
+        font-size: 3rem;
+    }
+
+    .삭제버튼 {
+        width: 22px;
+        height: 22px;
+
+        top: 8px;
+        right: 8px;
+
+        font-size: 15px;
+    }
+
+    .카드정보 {
+        margin-top: 12px;
+
+        gap: 5px;
+
+        font-size: 0.75rem;
+    }
+
+    .날짜 {
+        white-space: nowrap;
+    }
+
+    .카드제목 {
+        margin-top: 9px;
+
+        font-size: 0.875rem;
+    }
+
+    .사진도구 {
+        height: 64px;
+    }
+
+    .강아지사진목록 {
+        width: 100%;
+    }
+
+    .하단바깥 {
+        margin-top: 60px;
+    }
+
+    .하단 {
+        height: 140px;
+
+        padding:
+            24px 20px 0 20px;
+    }
+
+    .위로버튼 {
+        display: none;
+    }
+
+    .모달 {
+        width: 90%;
+
+        padding: 24px;
+
+        border-radius: 22px;
+    }
+
+    .등록완료모달 {
+        width: 90%;
+    }
+
+    .모달제목 {
+        margin-bottom: 28px;
+
+        font-size: 1.25rem;
+    }
+
+    .감정목록 {
+        gap: 14px;
+    }
+
+    .내용입력 {
+        height: 120px;
+    }
+}
