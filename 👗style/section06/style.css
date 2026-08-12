@@ -1,0 +1,28 @@
+::view-transition-old(root) {
+    animation: 페이지나가기 0.5s ease;
+}
+
+::view-transition-new(root) {
+    animation: 페이지들어오기 0.5s ease;
+}
+
+@keyframes 페이지나가기 {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+
+@keyframes 페이지들어오기 {
+    from {
+        transform: translateX(100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}

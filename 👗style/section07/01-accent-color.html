@@ -5,16 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>엑센트컬러 예제</title>
     <style>
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .btn {
-            display: flex;
-            flex-direction: row;
-        }
-
         .체크박스 {
             accent-color: lime; 
             /* background-color: lime; */ 
@@ -25,19 +15,15 @@
         }
         .크기조절바 {
             accent-color: gold;
-            width: 100px;
         }
         .프로그레스바 {
             accent-color: deepskyblue;
-            width: 100px;
         }
     </style>
 </head>
 <body>
-    <div class="btn">
-        <input type="checkbox" class="체크박스" />
-        <input type="radio" class="라디오버튼" />
-    </div>
+    <input type="checkbox" class="체크박스" />
+    <input type="radio" class="라디오버튼" />
     <input type="range" max="100" value="70" class="크기조절바"/>
     <progress max="100" value="70" class="프로그레스바"></progress>
 </body>
